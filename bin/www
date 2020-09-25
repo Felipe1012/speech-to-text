@@ -9,6 +9,7 @@ app.listen(appEnv.port, "0.0.0.0", () => {
   console.log("Running at " + appEnv.url);
 });
 
+`<meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src 'self';font-src 'self'; img-src 'self' data: https:; style-src 'self' ; script-src 'self'">`
 
 var server = http.createServer(app);
 server.on('error', onError);

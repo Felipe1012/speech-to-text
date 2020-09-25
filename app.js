@@ -12,7 +12,6 @@ const router = require("./routes/router");
 const app = express();
 
 
-`<meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src 'self';font-src 'self'; img-src 'self' data: https:; style-src 'self' ; script-src 'self'">`
 
 
 app.use(bodyParser.urlencoded({ extended: false }))
