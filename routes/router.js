@@ -3,7 +3,6 @@ const stt = require("../utils/stt");
 const params = require("../params");
 const router = Router();
 
-
 router.post('/stt', async function (req,  res) {
 
     // res.send("hey world")
@@ -22,8 +21,6 @@ router.post('/stt', async function (req,  res) {
                 res.send(ans)
             }
             );
-
-            
         }
     } catch (err) {
         res.status(500).json({ message: "No se pudo analizar el archivo ingresado" });
