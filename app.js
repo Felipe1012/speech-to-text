@@ -1,5 +1,4 @@
-var cfenv = require("cfenv");
-var appEnv = cfenv.getAppEnv();
+
 
 const bodyParser = require("body-parser");
 
@@ -13,9 +12,7 @@ const router = require("./routes/router");
 
 const app = express();
 
-app.listen(appEnv.port, "0.0.0.0", () => {
-  console.log("Running at " + appEnv.url);
-});
+
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
