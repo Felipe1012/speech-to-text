@@ -1,20 +1,32 @@
 {
   "name": "jr",
   "version": "1.0.0",
-  "description": "",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js",
-    "dev" :"nodemon src/app.js"
+    "start": "node ./bin/www",
+    "dev": "nodemon ./bin/www"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
+    "http": "0.0.1-security",
     "ibm-watson": "^5.7.0",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.4",
     "watson-developer-cloud": "^4.0.1"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Felipe1012/speech-to-text.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Felipe1012/speech-to-text/issues"
+  },
+  "homepage": "https://github.com/Felipe1012/speech-to-text#readme",
+  "description": ""
 }

@@ -1,5 +1,5 @@
 const { Router } = require("express")
-const stt = require("./utils/stt");
+const stt = require("../utils/stt");
 const params = require("../params");
 const router = Router();
 
