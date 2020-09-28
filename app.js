@@ -3,7 +3,6 @@ const app= express();
 const morgan = require('morgan');
 
 app.set('port', process.env.PORT || 3000);
-var favicon = require('serve-favicon')
 var path = require('path')
 
 app.use(morgan('dev'));
