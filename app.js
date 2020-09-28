@@ -13,6 +13,10 @@ app.use(require('./routes/router'))
 app.use(cors());
 
 
+app.get('/favicon.ico', (req, res) => {
+  // Use actual relative path to your .ico file here
+  res.sendFile(path.resolve(__dirname, '../imagen.png'));
+});
 
 
 app.listen(app.get('port'),() =>{
