@@ -10,7 +10,7 @@ app.use(morgan('dev'));
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());
  //routes
-//app.use(require('./routes/router'))
+app.use(require('./routes/router'))
 //app.use(favicon(path.join(__dirname, 'public', '../imagen.png')))
 
 
