@@ -1,31 +1,36 @@
-const express = require('express');
-const app= express();
-const morgan = require('morgan');
+/**
+* Copyright 2020 IBM
+*
+*   Licensed under the Apache License, Version 2.0 (the "License");
+*   you may not use this file except in compliance with the License.
+*   You may obtain a copy of the License at
+*
+*     http://www.apache.org/licenses/LICENSE-2.0
+*
+*   Unless required by applicable law or agreed to in writing, software
+*   distributed under the License is distributed on an "AS IS" BASIS,
+*   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+*   See the License for the specific language governing permissions and
+*   limitations under the License.
+**/
+const bodyParser = require("body-parser");
+
 const cors = require("cors");
-const http = require('http');
-app.set('port', process.env.PORT || 3000);
-var path = require('path')
-app.use(morgan('dev'));
-app.use(express.urlencoded({extended:false}));
-app.use(express.json());
- //routes
-app.use(require('./routes/router'))
+const express = require("express");
+const cookieParser = require("cookie-parser");
+const logger = require("morgan");
+
+const router = require("./routes/router");
+
+
+const app = express();
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json());
 app.use(cors());
 
+app.use(logger("dev"));
+app.use(cookieParser());
 
-app.get('/favicon.ico', (req, res) => {
-  // Use actual relative path to your .ico file here
-  res.sendFile(path.resolve(__dirname, '../imagen.png'));
-});
-app.set('appName', 'stt');
+app.use("/api", router);
 
-var cfenv = require("cfenv");
-
-if (cfenv.getAppEnv().isLocal == true)
-   {http.createServer(app).listen(app.get('port'),
-     function(req, res) {console.log(app.get('appName')+' is listening locally on port: ' + app.get('port'));});
-  }
-  else
-  {
-    var server = app.listen(app.get('port'), function() {console.log('Listening on port %d', server.address().port);});
-  }
+module.exports = app;
