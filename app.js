@@ -1,6 +1,7 @@
 const express = require('express');
 const app= express();
 const morgan = require('morgan');
+const cors = require("cors");
 
 app.set('port', process.env.PORT || 3000);
 var favicon = require('serve-favicon')
@@ -11,6 +12,7 @@ app.use(express.json());
  //routes
 app.use(require('./routes/router'))
 app.use(favicon(path.join( 'public', '../imagen.png')))
+app.use(cors());
 
 
 app.listen(app.get('port'),() =>{
