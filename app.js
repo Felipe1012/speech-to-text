@@ -12,10 +12,7 @@ app.use(express.json());
 app.use(require('./routes/router'))
 app.use(cors());
 
-app.use(express.static(__dirname + "build")); //
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "build", "../imagen.png")); // <- try "index.html"
-});
+
 
 
 app.listen(app.get('port'),() =>{
