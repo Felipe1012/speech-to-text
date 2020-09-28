@@ -4,7 +4,8 @@ const morgan = require('morgan');
 
 app.set('port', process.env.PORT || 3000);
 var path = require('path')
-
+var distDir = __dirname + "/dist/";
+ app.use(express.static(distDir));
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended:false}));
 app.use(express.json());
